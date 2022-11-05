@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="mt-5 w-50 p-2 ms-5" style="background-color: #79aec8;">
+    Authentication and authorization
+  </div>
+  <div class="w-50 p-1 ms-5">
+    <a href="{{url_for('dashboard')}}">admin</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5 w-50 p-2 ms-5" style="background-color: #79aec8;">
+    <div class="col-md-6">
+      APi's
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-warning" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .7rem;" href="{{url_for('add')}}">Add</a> 
+    </div>
+  </div>
+
+  {% for i in data %}
+  <div class="d-flex p-2 ms-5">
+    <div class="d-inline-block me-5"> 
+      {{i.name}}
+    </div>
+
+    <div class="d-inline-block ms-5">
+      <a href="{{ url_for('edit',id=i.id ) }}" class="btn btn-primary btn-sm mx-4" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .7rem;">edit</a>
+      <a href="{{ url_for('delete',id=i.id ) }}" class="btn btn-danger btn-sm mx-4" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .7rem;">delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

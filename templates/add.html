@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Add{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="mt-5 w-25 p-2 mx-auto" style="background-color: #79aec8;">
+        New
+    </div>
+    <div class="w-25 p-2 mx-auto">
+        <form action="{{ url_for('add') }}" method="post">
+            <div class="mb-3">
+                <label for="InputText" class="form-label">Add:</label>
+                <input type="text" class="form-control" id="InputText" name="addValue">
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-primary btn-md mx-4">save</button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-danger btn-md mx-4">cancel</a>
+                 </div>
+            </div>
+        </form>        
+    </div>
+</div>
+{% endblock %}
